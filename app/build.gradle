@@ -36,4 +36,5 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    implementation 'net.objecthunter:exp4j:0.4.8' //got this from google and added it so that I can apply math functions to parse string instead of creating a parser from scratch
 }
