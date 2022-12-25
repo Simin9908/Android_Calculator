@@ -64,31 +64,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String calc_this = solveTV.getText().toString(); //cannot put static value in string so need to have some default value at the start; purpose is declaring varaible for concatenation
 
 
-        if (buttonText.equals("=")){
-            //get result from function
-            Expression e = new ExpressionBuilder(calc_this).build();
-            double result = e.evaluate();
-            String val = Double.toString(result);
-            resultTV.setText(val);
+        if (buttonText.equals("=")){ //entire string gets parsed using the math dependency in this block
+            try {
+                Expression e = new ExpressionBuilder(calc_this).build();
+                double result = e.evaluate();
+                String val = Double.toString(result);
+                resultTV.setText(val);
+                solveTV.setText("");
+            }
+            catch (Exception e){
+                resultTV.setText("Error");
+            };
+
         }
 
-
-        //As long as button text is not equal to C, AC, do the following:
-        calc_this=calc_this+buttonText;
-        solveTV.setText(calc_this);
-
-
-
-        /*if (buttonText.equals("AC")){
+        else if (buttonText.equals("AC")){ //resets the strings
             solveTV.setText("");
-            resultTV.setText("O");
-            return;
+            resultTV.setText("0");
         }
 
-        if (buttonText.equals("=")){
-            solveTV.setText(resultTV.getText());
-            return;
-        }*/
+        else if (buttonText.equals("C")){ //Clears last added content
+            try{
+                calc_this=calc_this.substring(0,calc_this.length()-1);
+                solveTV.setText(calc_this);
+            }
+            catch (Exception s){
+                solveTV.setText("");
+                resultTV.setText("0");
+            };
+        }
+
+        else{ //if no executable buttons, then the rest of the buttons just add to the parse string, its okay because the try and catch block will deal with parse errors
+            calc_this=calc_this+buttonText;
+            solveTV.setText(calc_this);
+        }
+
 
     }
 }
