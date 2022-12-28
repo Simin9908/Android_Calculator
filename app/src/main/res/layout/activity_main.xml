@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
 
@@ -15,7 +16,7 @@
         android:textSize="30dp"
         android:textAlignment="textEnd"
         android:gravity="end"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:layout_above="@id/result_tv"
         android:layout_margin="15dp">
     </TextView>
@@ -28,7 +29,7 @@
         android:textSize="64dp"
         android:textAlignment="textEnd"
         android:gravity="end"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:layout_above="@id/buttons_layout"
         android:layout_margin="15dp">
     </TextView>
